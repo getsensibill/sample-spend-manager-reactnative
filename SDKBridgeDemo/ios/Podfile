@@ -1,0 +1,22 @@
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '13.0'
+
+target 'SDKBridgeDemo' do
+  config = use_native_modules!
+
+  use_react_native!(:path => config["reactNativePath"])
+
+  pod 'Sensibill', :git => 'git@bitbucket.org:sensibill/ios-sdk.git', :tag => 'v2022.0.0'
+
+  target 'SDKBridgeDemoTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  use_flipper!
+  post_install do |installer|
+    flipper_post_install(installer)
+  end
+end

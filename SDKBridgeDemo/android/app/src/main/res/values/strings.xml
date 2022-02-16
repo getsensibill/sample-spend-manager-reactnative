@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SDKBridgeDemo</string>
+    <string name="title_activity_receipt_capture">ReceiptCaptureActivity</string>
+</resources>
